@@ -1,26 +1,31 @@
 # Emcomum-OS Branding
 
-Este repositório público contém apenas o release do ISO e não os arquivos de construção do sistema live (`live-build`, `cubic`, `debian-live`, etc.).
+Este diretório contém os arquivos visuais do tema do sistema para a ISO Debian + GNOME puro.
 
-Para inserir imagens no ISO de forma correta, o ajuste precisa ser aplicado no sistema live antes da geração do ISO final.
+Arquivos esperados:
+- `wallpaper.svg` ou `wallpaper.png`
+- `logo.svg` ou `logo.png`
+- `splash.svg` ou `splash.png`
 
-Estrutura sugerida:
+O script principal está em `scripts/emcomum-branding.sh`.
 
-- `branding/` -> arquivos finais do tema
-- `scripts/emcomum-branding.sh` -> script para instalar wallpaper, logo e splash
+Uso em um sistema live / destino:
 
-Uso:
+```bash
+sudo bash /caminho/para/scripts/emcomum-branding.sh
+```
 
-1. Copie suas imagens para a pasta `branding/`:
-   - `wallpaper.png`
-   - `logo.png`
-   - `splash.png`
-2. Rode o script dentro do chroot do live system ou do sistema destino:
-   - `sudo bash scripts/emcomum-branding.sh`
-3. Gere o ISO final com o seu processo de build.
+Ou explicitando os arquivos:
 
-Observação:
+```bash
+sudo bash /caminho/para/scripts/emcomum-branding.sh \
+  /caminho/para/branding/wallpaper.svg \
+  /caminho/para/branding/logo.svg \
+  /caminho/para/branding/splash.svg
+```
 
-- A tela de inicialização (splash) normalmente é configurada via Plymouth.
-- O fundo do GNOME é configurado via `gsettings`.
-- O logotipo pode ser usado em `/usr/share/pixmaps` e em aplicativos/branding do sistema.
+Notas:
+- A imagem de fundo do GNOME é aplicada via `gsettings`.
+- A tela de inicialização é configurada via Plymouth.
+- O logotipo é instalado em `/usr/share/pixmaps`.
+- Para gerar a ISO final, o script deve ser executado dentro do chroot do sistema live antes do build final.
