@@ -1,17 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
   <defs>
-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#091d2b"/>
-      <stop offset="100%" stop-color="#123d34"/>
-    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030509"/><stop offset="1" stop-color="#190608"/></linearGradient>
+    <radialGradient id="orb"><stop stop-color="#ff2923"/><stop offset=".8" stop-color="#970400"/><stop offset="1" stop-color="#320000"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="48"/></filter>
   </defs>
-
   <rect width="1920" height="1080" fill="url(#bg)"/>
-  <circle cx="960" cy="420" r="240" fill="#56ebd2" fill-opacity="0.16" stroke="#9cf9eb" stroke-width="7"/>
-  <path d="M960 248 L1112 420 L960 592 L808 420 Z" fill="#96f5e8"/>
-  <path d="M960 330 L1060 420 L960 510 L860 420 Z" fill="#ebfffb"/>
-  <circle cx="960" cy="420" r="38" fill="#091d2b"/>
-
-  <text x="960" y="760" text-anchor="middle" fill="#edfdf8" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="106">Emcomum-OS</text>
-  <text x="960" y="835" text-anchor="middle" fill="#b6efe9" font-family="DejaVu Sans, Arial, sans-serif" font-size="42">Debian • GNOME puro • 1.0.1</text>
+  <circle cx="960" cy="430" r="340" fill="#c00" opacity=".25" filter="url(#glow)"/>
+  <circle cx="960" cy="430" r="270" fill="url(#orb)" stroke="#ff5147" stroke-width="5"/>
+  <g transform="translate(824 286) scale(.27)">
+    <circle cx="512" cy="210" r="92" fill="#030303" stroke="#292929" stroke-width="10"/>
+    <path d="M125 430 850 450 850 900 750 770 750 570 550 630 525 890 680 970 790 815 790 1075 100 1075 280 980 350 700 335 540Z" fill="#f6f6f7"/>
+    <path d="m125 430 240 110 15 160-85 280-195 95 270-20-20-350-15-165Z" fill="#d5d6da"/>
+    <path d="m550 630 235-60-205 100-50 180-115-60Z" fill="#fff"/>
+  </g>
+  <g fill="#fff" font-family="DejaVu Sans, Arial, sans-serif" text-anchor="middle">
+    <text x="960" y="824" font-size="82" font-weight="700">Emcomum-OS</text>
+    <text x="960" y="906" font-size="48" fill="#ffb5ad">2.0</text>
+    <text x="960" y="972" font-size="28" fill="#d7b8b4" letter-spacing="5">DEBIAN · GNOME</text>
+  </g>
 </svg>

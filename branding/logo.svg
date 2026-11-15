@@ -1,17 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
   <defs>
-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#081d2d"/>
-      <stop offset="100%" stop-color="#153f39"/>
-    </linearGradient>
+    <radialGradient id="red" cx="35%" cy="25%" r="80%"><stop stop-color="#ff1717"/><stop offset=".66" stop-color="#d90000"/><stop offset="1" stop-color="#5e0000"/></radialGradient>
+    <linearGradient id="edge" x2="0" y2="1"><stop stop-color="#ff3939"/><stop offset="1" stop-color="#520000"/></linearGradient>
+    <linearGradient id="ball" x2=".3" y2="1"><stop stop-color="#333"/><stop offset=".45" stop-color="#050505"/><stop offset="1" stop-color="#000"/></linearGradient>
+    <filter id="shadow" x="-.2" y="-.2" width="1.4" height="1.4"><feGaussianBlur stdDeviation="12"/></filter>
   </defs>
-
-  <rect width="1024" height="1024" fill="url(#bg)" rx="140"/>
-  <circle cx="512" cy="424" r="230" fill="#4fe7d0" fill-opacity="0.18" stroke="#7ff7e2" stroke-width="10"/>
-  <path d="M512 232 L638 374 L512 516 L386 374 Z" fill="#8ff6e2"/>
-  <path d="M512 314 L590 374 L512 434 L434 374 Z" fill="#eafef9"/>
-  <circle cx="512" cy="374" r="52" fill="#081d2d"/>
-
-  <text x="512" y="710" text-anchor="middle" fill="#f0fff9" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="104">Emcomum-OS</text>
-  <text x="512" y="780" text-anchor="middle" fill="#bdeee4" font-family="DejaVu Sans, Arial, sans-serif" font-size="44">1.0.1</text>
+  <circle cx="512" cy="512" r="470" fill="#000" opacity=".65" filter="url(#shadow)"/>
+  <circle cx="512" cy="512" r="462" fill="url(#red)" stroke="url(#edge)" stroke-width="16"/>
+  <circle cx="512" cy="252" r="68" fill="url(#ball)" stroke="#111" stroke-width="8"/>
+  <path d="M306 354 740 365 740 535 682 462 682 410 522 455 498 660 570 697 649 575 626 820 700 638 700 822 280 822 387 764 428 603 416 423Z" fill="#f7f7f8"/>
+  <path d="m306 354 110 69 12 180-41 161-107 58 154-10-8-209-12-180Z" fill="#d9dade"/>
+  <path d="m522 455 160-45-142 68-34 153-71-36Z" fill="#fff"/>
+  <path d="m570 697 79-122-23 245-47 10Z" fill="#d4d5d9"/>
+  <path d="m280 822 420 0-22 22-448 0Z" fill="#aaa" opacity=".7"/>
 </svg>
