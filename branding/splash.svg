@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#091d2b"/>
+      <stop offset="100%" stop-color="#123d34"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="960" cy="420" r="240" fill="#56ebd2" fill-opacity="0.16" stroke="#9cf9eb" stroke-width="7"/>
+  <path d="M960 248 L1112 420 L960 592 L808 420 Z" fill="#96f5e8"/>
+  <path d="M960 330 L1060 420 L960 510 L860 420 Z" fill="#ebfffb"/>
+  <circle cx="960" cy="420" r="38" fill="#091d2b"/>
+
+  <text x="960" y="760" text-anchor="middle" fill="#edfdf8" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="106">Emcomum-OS</text>
+  <text x="960" y="835" text-anchor="middle" fill="#b6efe9" font-family="DejaVu Sans, Arial, sans-serif" font-size="42">Debian • GNOME puro • 1.0.1</text>
+</svg>
