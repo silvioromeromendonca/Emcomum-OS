@@ -1,56 +1,56 @@
-# Emcomum-OS 2.0
+# Emcomum-OS
 
-Projeto de uma ISO live instalável baseada em Debian, com ambiente GNOME puro e identidade visual Emcomum-OS 2.0.
+Projeto de uma distribuição Linux baseada em Debian, com ambiente GNOME puro e identidade visual em vermelho, preto e espaço profundo.
 
-## O que está incluído
+## Visão geral
 
-- GNOME (`task-gnome-desktop`) com GDM e NetworkManager.
-- Imagem híbrida ISO para amd64, inicializável por USB/BIOS/UEFI.
-- Instalador Debian na imagem live.
-- Papel de parede espacial em vermelho e preto, logotipo e arte da tela inicial.
-- Scripts e fontes da identidade visual versionados neste repositório.
+- Base: Debian stable (trixie por padrão)
+- Desktop: GNOME puro com GDM
+- Instalação: ISO live híbrida para amd64
+- Branding: papel de parede, splash e logotipo temáticos em vermelho
+- Repositório: aberto para futuras alterações e refinamentos
 
-## Gerar a ISO
+## Arquivos principais
 
-A compilação deve ser feita em uma máquina Debian amd64 com acesso à internet. Instale as ferramentas necessárias:
+- `branding/wallpaper.svg` — papel de parede do desktop
+- `branding/logo.svg` — logotipo circular para sistema e ícones
+- `branding/splash.svg` — tela inicial / Plymouth
+- `scripts/emcomum-branding.sh` — instala a identidade visual no sistema
+- `scripts/build-iso.sh` — gera a ISO de instalação
+
+## Compilar a ISO
+
+Em uma máquina Debian amd64 com acesso à internet e privilégios de root:
 
 ```bash
 sudo apt update
 sudo apt install live-build debootstrap squashfs-tools xorriso
-```
 
-Clone o projeto e execute o script como root (o live-build precisa de privilégios):
-
-```bash
 git clone https://github.com/silvioromeromendonca/Emcomum-OS.git
 cd Emcomum-OS
 sudo bash scripts/build-iso.sh
 ```
 
-A ISO será gravada em `build/live-image-amd64.hybrid.iso`. O script usa Debian `trixie` por padrão. Para selecionar outra distribuição Debian suportada pelo live-build:
+A ISO será gerada em:
 
 ```bash
-sudo LB_DISTRIBUTION=bookworm bash scripts/build-iso.sh
+build/live-image-amd64.hybrid.iso
 ```
 
-A primeira compilação baixa os pacotes Debian e pode levar bastante tempo e espaço em disco. Para limpar a configuração/artefatos do live-build antes de compilar novamente:
+### Limpeza
 
 ```bash
 sudo bash scripts/build-iso.sh --clean
 ```
 
-> Teste a ISO em uma máquina virtual antes de gravá-la em um dispositivo. A gravação de uma imagem em disco/USB pode apagar os dados do dispositivo selecionado.
+## Status do projeto
 
-## Identidade visual
+Este repositório foi preparado para suportar a criação da distribuição Emcomum-OS com a identidade visual solicitada. A etapa de compilação da ISO é automatizada por script, mas a geração do arquivo `.iso` final precisa ser executada em um ambiente Debian real com `live-build`, porque a API do GitHub não oferece suporte para compilar imagens de sistema em tempo de execução.
 
-- `branding/wallpaper.svg`: papel de parede GNOME.
-- `branding/logo.svg`: logotipo do sistema.
-- `branding/splash.svg`: arte de apresentação/tela inicial.
-- `scripts/emcomum-branding.sh`: instala os recursos visuais e configura GNOME, dconf e Plymouth.
-- `scripts/build-iso.sh`: configura e compila a imagem live instalável.
-
-As imagens SVG são fontes vetoriais editáveis. Para aplicar o tema manualmente em um Debian já instalado, use `sudo bash scripts/emcomum-branding.sh` (requer `librsvg2-bin` e Plymouth).
+O projeto está aberto para futuras mudanças e ajustes visuais e de infraestrutura.
 
 ## Observações
 
-Esta é uma configuração comunitária sobre Debian; não é uma distribuição oficial do Debian. Os pacotes continuam sendo obtidos dos repositórios Debian configurados no live-build.
+- A ISO é híbrida e pode ser gravada em USB ou testada em máquina virtual.
+- O branding é implantado na imagem live e também pode ser reaplicado em um sistema Debian em execução.
+- As artes são vetoriais SVG, editáveis e facilmente refináveis.
